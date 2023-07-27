@@ -29,17 +29,4 @@ var flexboxe = function () {
     };
     return builder;
 };
-console.log(flexboxe()
-    .justifyContent.around()
-    .alignContent.end()
-    .alignItems.between()
-    .flexDirection.column()
-    .wrap.nowrap()
-    .margin.top(20)
-    .margin.vertical(90)
-    .margin.horizontal(50)
-    .padding.bottom(20)
-    .padding.top(20)
-    .order(1)
-    .build());
 exports.default = flexboxe;

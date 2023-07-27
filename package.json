@@ -1,6 +1,6 @@
 {
   "name": "flexboxe",
-  "version": "1.0.011",
+  "version": "1.0.012",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
