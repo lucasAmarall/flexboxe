@@ -1,58 +1,45 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var generateAlignmentProp_1 = require("./utils/generateAlignmentProp");
+var generateAllDirectionsProp_1 = require("./utils/generateAllDirectionsProp");
+var generateDirections_1 = require("./utils/generateDirections");
+var generateNumberProp_1 = require("./utils/generateNumberProp");
+var generateWrap_1 = require("./utils/generateWrap");
 var flexboxe = function () {
     var builder = {
         styles: {
             display: 'flex',
+            flexDirection: 'column',
         },
     };
-    builder.flexDirection = function (direction) {
-        builder.styles.flexDirection = direction;
-        return builder;
-    };
-    builder.wrap = function (wrap) {
-        builder.styles.flexWrap = wrap;
-        return builder;
-    };
-    builder.justifyContent = function (justify) {
-        builder.styles.justifyContent = justify;
-        return builder;
-    };
-    builder.alignItems = function (alignment) {
-        builder.styles.alignItems = alignment;
-        return builder;
-    };
-    builder.alignContent = function (alignment) {
-        builder.styles.alignContent = alignment;
-        return builder;
-    };
-    builder.grow = function (grow) {
-        builder.styles.flexGrow = grow;
-        return builder;
-    };
-    builder.basis = function (basis) {
-        builder.styles.flexBasis = basis;
-        return builder;
-    };
-    builder.shrink = function (shrink) {
-        builder.styles.flexShrink = shrink;
-        return builder;
-    };
-    builder.flex = function (flex) {
-        builder.styles.flex = flex;
-        return builder;
-    };
-    builder.order = function (order) {
-        builder.styles.order = order;
-        return builder;
-    };
-    builder.alignSelf = function (alignment) {
-        builder.styles.alignSelf = alignment;
-        return builder;
-    };
+    (0, generateNumberProp_1.generateNumberProp)(builder, 'flex');
+    (0, generateNumberProp_1.generateNumberProp)(builder, 'order');
+    (0, generateNumberProp_1.generateNumberProp)(builder, 'shrink');
+    (0, generateNumberProp_1.generateNumberProp)(builder, 'basis');
+    (0, generateNumberProp_1.generateNumberProp)(builder, 'grow');
+    (0, generateAlignmentProp_1.generateAlignmentProp)(builder, 'justifyContent');
+    (0, generateAlignmentProp_1.generateAlignmentProp)(builder, 'alignContent');
+    (0, generateAlignmentProp_1.generateAlignmentProp)(builder, 'alignItems');
+    (0, generateDirections_1.generateDirections)(builder);
+    (0, generateAllDirectionsProp_1.generateAllDirectionsProp)(builder, 'margin');
+    (0, generateAllDirectionsProp_1.generateAllDirectionsProp)(builder, 'padding');
+    (0, generateWrap_1.generateWrap)(builder);
     builder.build = function () {
         return builder.styles;
     };
     return builder;
 };
+console.log(flexboxe()
+    .justifyContent.around()
+    .alignContent.end()
+    .alignItems.between()
+    .flexDirection.column()
+    .wrap.nowrap()
+    .margin.top(20)
+    .margin.vertical(90)
+    .margin.horizontal(50)
+    .padding.bottom(20)
+    .padding.top(20)
+    .order(1)
+    .build());
 exports.default = flexboxe;

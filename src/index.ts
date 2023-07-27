@@ -1,66 +1,30 @@
-import { TBuilder } from './interfaces/Builder';
+import { TBuilder } from './types/Builder';
+import { generateAlignmentProp } from './utils/generateAlignmentProp';
+import { generateAllDirectionsProp } from './utils/generateAllDirectionsProp';
+import { generateDirections } from './utils/generateDirections';
+import { generateNumberProp } from './utils/generateNumberProp';
+import { generateWrap } from './utils/generateWrap';
 
 const flexboxe = () => {
   const builder: TBuilder = {
     styles: {
       display: 'flex',
+      flexDirection: 'column',
     },
   } as TBuilder;
 
-  builder.flexDirection = (direction) => {
-    builder.styles.flexDirection = direction;
-    return builder;
-  };
-
-  builder.wrap = (wrap) => {
-    builder.styles.flexWrap = wrap;
-    return builder;
-  };
-
-  builder.justifyContent = (justify) => {
-    builder.styles.justifyContent = justify;
-    return builder;
-  };
-
-  builder.alignItems = (alignment) => {
-    builder.styles.alignItems = alignment;
-    return builder;
-  };
-
-  builder.alignContent = (alignment) => {
-    builder.styles.alignContent = alignment;
-    return builder;
-  };
-
-  builder.grow = (grow) => {
-    builder.styles.flexGrow = grow;
-    return builder;
-  };
-
-  builder.basis = (basis) => {
-    builder.styles.flexBasis = basis;
-    return builder;
-  };
-
-  builder.shrink = (shrink) => {
-    builder.styles.flexShrink = shrink;
-    return builder;
-  };
-
-  builder.flex = (flex) => {
-    builder.styles.flex = flex;
-    return builder;
-  };
-
-  builder.order = (order) => {
-    builder.styles.order = order;
-    return builder;
-  };
-
-  builder.alignSelf = (alignment) => {
-    builder.styles.alignSelf = alignment;
-    return builder;
-  };
+  generateNumberProp(builder, 'flex');
+  generateNumberProp(builder, 'order');
+  generateNumberProp(builder, 'shrink');
+  generateNumberProp(builder, 'basis');
+  generateNumberProp(builder, 'grow');
+  generateAlignmentProp(builder, 'justifyContent');
+  generateAlignmentProp(builder, 'alignContent');
+  generateAlignmentProp(builder, 'alignItems');
+  generateDirections(builder);
+  generateAllDirectionsProp(builder, 'margin');
+  generateAllDirectionsProp(builder, 'padding');
+  generateWrap(builder);
 
   builder.build = () => {
     return builder.styles;
