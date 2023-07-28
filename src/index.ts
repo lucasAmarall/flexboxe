@@ -1,6 +1,8 @@
 import { TBuilder } from './types/Builder';
 import { generateAlignmentProp } from './utils/generateAlignmentProp';
 import { generateAllDirectionsProp } from './utils/generateAllDirectionsProp';
+import { generateBackground } from './utils/generateBackground';
+import { generateBorders } from './utils/generateBorders';
 import { generateDirections } from './utils/generateDirections';
 import { generateFont } from './utils/generateFontProp';
 import { generateRawProp } from './utils/generateRawProp';
@@ -18,6 +20,10 @@ const flexboxe = () => {
 
   generateRawProp<number | string>(builder, 'width');
   generateRawProp<number | string>(builder, 'height');
+  generateRawProp<number | string>(builder, 'minWidth');
+  generateRawProp<number | string>(builder, 'minHeight');
+  generateRawProp<number | string>(builder, 'maxWidth');
+  generateRawProp<number | string>(builder, 'maxHeight');
   generateRawProp<number>(builder, 'top');
   generateRawProp<number>(builder, 'left');
   generateRawProp<number>(builder, 'bottom');
@@ -35,8 +41,9 @@ const flexboxe = () => {
   generateAllDirectionsProp(builder, 'margin');
   generateAllDirectionsProp(builder, 'padding');
   generateWrap(builder);
+  generateBorders(builder);
   generateFont(builder);
-
+  generateBackground(builder);
   builder.build = () => {
     return builder.styles;
   };

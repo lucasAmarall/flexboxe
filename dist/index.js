@@ -2,6 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var generateAlignmentProp_1 = require("./utils/generateAlignmentProp");
 var generateAllDirectionsProp_1 = require("./utils/generateAllDirectionsProp");
+var generateBackground_1 = require("./utils/generateBackground");
+var generateBorders_1 = require("./utils/generateBorders");
 var generateDirections_1 = require("./utils/generateDirections");
 var generateFontProp_1 = require("./utils/generateFontProp");
 var generateRawProp_1 = require("./utils/generateRawProp");
@@ -34,7 +36,9 @@ var flexboxe = function () {
     (0, generateAllDirectionsProp_1.generateAllDirectionsProp)(builder, 'margin');
     (0, generateAllDirectionsProp_1.generateAllDirectionsProp)(builder, 'padding');
     (0, generateWrap_1.generateWrap)(builder);
+    (0, generateBorders_1.generateBorders)(builder);
     (0, generateFontProp_1.generateFont)(builder);
+    (0, generateBackground_1.generateBackground)(builder);
     builder.build = function () {
         return builder.styles;
     };

@@ -37,6 +37,20 @@ type TStyles = {
     lineHeight: number;
     letterSpacing: number;
     fontFamily: string;
+    borderTopLeftRadius: number;
+    borderTopRightRadius: number;
+    borderBottomLeftRadius: number;
+    borderBottomRightRadius: number;
+    borderRadius: number;
+    borderTopColor: string;
+    borderLeftColor: string;
+    borderRightColor: string;
+    borderBottomColor: string;
+    borderColor: string;
+    borderTopWidth: number;
+    borderLeftWidth: number;
+    borderRightWidth: number;
+    borderBottomWidth: number;
     position: 'absolute' | 'relative';
 };
 export type TBuilder = {
@@ -58,10 +72,45 @@ export type TBuilder = {
     justifyContent: TAlignmentFactory;
     margin: AllDirectionProps;
     padding: AllDirectionProps;
+    background: {
+        color: rawProp<string>;
+        image: rawProp<string>;
+        position: {
+            center: () => TBuilder;
+            set: rawProp<string>;
+        };
+    };
+    border: {
+        width: {
+            all: rawProp<number>;
+            top: rawProp<number>;
+            left: rawProp<number>;
+            right: rawProp<number>;
+            bottom: rawProp<number>;
+        };
+        color: {
+            all: rawProp<string>;
+            top: rawProp<string>;
+            left: rawProp<string>;
+            right: rawProp<string>;
+            bottom: rawProp<string>;
+        };
+        radius: {
+            all: rawProp<number>;
+            top: {
+                left: rawProp<number>;
+                right: rawProp<number>;
+            };
+            bottom: {
+                left: rawProp<number>;
+                right: rawProp<number>;
+            };
+        };
+    };
     font: {
         family: rawProp<string>;
         size: rawProp<number>;
-        lineHeight: rawProp<number>;
+        lineHeight: rawProp<number | string>;
         spacing: rawProp<number>;
     };
     direction: {

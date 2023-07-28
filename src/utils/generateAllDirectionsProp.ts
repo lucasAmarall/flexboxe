@@ -29,6 +29,14 @@ const generateAllDirectionsProp = (builder: any, propName: string) => {
     builder[propName].right(v);
     return builder;
   };
+
+  builder[propName]['all'] = (v: number) => {
+    builder[propName].left(v);
+    builder[propName].right(v);
+    builder[propName].bottom(v);
+    builder[propName].top(v);
+    return builder;
+  };
 };
 
 export { generateAllDirectionsProp };
