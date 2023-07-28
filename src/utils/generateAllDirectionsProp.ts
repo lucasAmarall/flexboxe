@@ -1,5 +1,6 @@
 const generateAllDirectionsProp = (builder: any, propName: string) => {
   builder[propName] = {};
+
   builder[propName]['top'] = (v: number) => {
     builder.styles[propName + 'Top'] = v;
     return builder;

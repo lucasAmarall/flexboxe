@@ -1,20 +1,19 @@
 const generateDirections = (builder: any) => {
-  builder.flexDirection = {};
+  builder.direction = {};
 
-  builder.flexDirection.row = () => {
+  builder.direction.row = () => {
     builder.styles.flexDirection = 'row';
     return builder;
   };
-
-  builder.flexDirection.column = () => {
+  builder.direction.column = () => {
     builder.styles.flexDirection = 'column';
     return builder;
   };
-  builder.flexDirection.columnReverse = () => {
+  builder.direction.columnReverse = () => {
     builder.styles.flexDirection = 'column-reverse';
     return builder;
   };
-  builder.flexDirection.rowReverse = () => {
+  builder.direction.rowReverse = () => {
     builder.styles.flexDirection = 'row-reverse';
     return builder;
   };

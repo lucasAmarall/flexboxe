@@ -1,6 +1,8 @@
 import { TAlignContent, TDirection, TWrap } from './Flexboxe';
 
-type NumberProp = (grow: number) => TBuilder;
+type NumberProp = (n: number) => TBuilder;
+type StrProp = (t: string) => TBuilder;
+
 type TAlignmentFactory = {
   start: () => TBuilder;
   end: () => TBuilder;
@@ -32,10 +34,23 @@ type TStyles = {
   flex: number;
   flexShrink: number;
   order: number;
+  top: number;
+  left: number;
+  bottom: number;
+  right: number;
+  fontSize: number;
+  lineHeight: number;
+  letterSpacing: number;
+  fontFamily: string;
+  position: 'absolute' | 'relative';
 };
 
 export type TBuilder = {
   styles: Partial<TStyles>;
+  top: NumberProp;
+  left: NumberProp;
+  bottom: NumberProp;
+  right: NumberProp;
   grow: NumberProp;
   basis: NumberProp;
   shrink: NumberProp;
@@ -48,11 +63,22 @@ export type TBuilder = {
   justifyContent: TAlignmentFactory;
   margin: AllDirectionProps;
   padding: AllDirectionProps;
-  flexDirection: {
+  font: {
+    family: StrProp;
+    size: NumberProp;
+    lineHeight: NumberProp;
+    spacing: NumberProp;
+  };
+  direction: {
     row: () => TBuilder;
     column: () => TBuilder;
     columnReverse: () => TBuilder;
     rowReverse: () => TBuilder;
+  };
+  position: {
+    relative: () => TBuilder;
+    absolute: () => TBuilder;
+    fullFill: () => TBuilder;
   };
   wrap: {
     wrap: () => TBuilder;
