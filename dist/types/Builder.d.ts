@@ -9,12 +9,13 @@ type TAlignmentFactory = {
     around: () => TBuilder;
 };
 type AllDirectionProps = {
-    top: rawProp<number>;
-    bottom: rawProp<number>;
-    left: rawProp<number>;
-    right: rawProp<number>;
-    vertical: rawProp<number>;
-    horizontal: rawProp<number>;
+    top: rawProp<number | string>;
+    bottom: rawProp<number | string>;
+    left: rawProp<number | string>;
+    right: rawProp<number | string>;
+    vertical: rawProp<number | string>;
+    horizontal: rawProp<number | string>;
+    all: rawProp<number | string>;
 };
 type TStyles = {
     display: 'flex';
@@ -57,10 +58,14 @@ export type TBuilder = {
     styles: Partial<TStyles>;
     width: rawProp<number | string>;
     height: rawProp<number | string>;
-    top: rawProp<number>;
-    left: rawProp<number>;
-    bottom: rawProp<number>;
-    right: rawProp<number>;
+    minWidth: rawProp<number | string>;
+    minHeight: rawProp<number | string>;
+    maxWidth: rawProp<number | string>;
+    maxHeight: rawProp<number | string>;
+    top: rawProp<number | string>;
+    left: rawProp<number | string>;
+    bottom: rawProp<number | string>;
+    right: rawProp<number | string>;
     grow: rawProp<number>;
     basis: rawProp<number>;
     shrink: rawProp<number>;
@@ -96,22 +101,25 @@ export type TBuilder = {
             bottom: rawProp<string>;
         };
         radius: {
-            all: rawProp<number>;
+            all: rawProp<number | string>;
             top: {
-                left: rawProp<number>;
-                right: rawProp<number>;
+                left: rawProp<number | string>;
+                right: rawProp<number | string>;
             };
             bottom: {
-                left: rawProp<number>;
-                right: rawProp<number>;
+                left: rawProp<number | string>;
+                right: rawProp<number | string>;
             };
         };
     };
     font: {
+        color: rawProp<string>;
         family: rawProp<string>;
         size: rawProp<number>;
         lineHeight: rawProp<number | string>;
-        spacing: rawProp<number>;
+        spacing: rawProp<number | string>;
+        toLowerCase: () => TBuilder;
+        toUpperCase: () => TBuilder;
     };
     direction: {
         row: () => TBuilder;

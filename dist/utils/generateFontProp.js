@@ -3,6 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.generateFont = void 0;
 var generateFont = function (builder) {
     builder.font = {};
+    builder.font.color = function (color) {
+        builder.styles.color = color;
+        return builder;
+    };
     builder.font.family = function (family) {
         builder.styles.fontFamily = family;
         return builder;
@@ -17,6 +21,14 @@ var generateFont = function (builder) {
     };
     builder.font.lineHeight = function (lineHeight) {
         builder.styles.lineHeight = lineHeight;
+        return builder;
+    };
+    builder.font.toLowerCase = function () {
+        builder.styles.textTransform = 'lowercase';
+        return builder;
+    };
+    builder.font.toUpperCase = function () {
+        builder.styles.textTransform = 'uppercase';
         return builder;
     };
 };

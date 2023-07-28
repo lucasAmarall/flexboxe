@@ -19,6 +19,10 @@ var flexboxe = function () {
     };
     (0, generateRawProp_1.generateRawProp)(builder, 'width');
     (0, generateRawProp_1.generateRawProp)(builder, 'height');
+    (0, generateRawProp_1.generateRawProp)(builder, 'minWidth');
+    (0, generateRawProp_1.generateRawProp)(builder, 'minHeight');
+    (0, generateRawProp_1.generateRawProp)(builder, 'maxWidth');
+    (0, generateRawProp_1.generateRawProp)(builder, 'maxHeight');
     (0, generateRawProp_1.generateRawProp)(builder, 'top');
     (0, generateRawProp_1.generateRawProp)(builder, 'left');
     (0, generateRawProp_1.generateRawProp)(builder, 'bottom');

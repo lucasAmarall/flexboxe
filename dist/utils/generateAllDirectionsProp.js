@@ -29,5 +29,12 @@ var generateAllDirectionsProp = function (builder, propName) {
         builder[propName].right(v);
         return builder;
     };
+    builder[propName]['all'] = function (v) {
+        builder[propName].left(v);
+        builder[propName].right(v);
+        builder[propName].bottom(v);
+        builder[propName].top(v);
+        return builder;
+    };
 };
 exports.generateAllDirectionsProp = generateAllDirectionsProp;
