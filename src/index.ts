@@ -3,7 +3,7 @@ import { generateAlignmentProp } from './utils/generateAlignmentProp';
 import { generateAllDirectionsProp } from './utils/generateAllDirectionsProp';
 import { generateDirections } from './utils/generateDirections';
 import { generateFont } from './utils/generateFontProp';
-import { generateNumberProp } from './utils/generateNumberProp';
+import { generateRawProp } from './utils/generateRawProp';
 import { generateWrap } from './utils/generateWrap';
 import { position } from './utils/position';
 
@@ -16,15 +16,17 @@ const flexboxe = () => {
     position: {},
   } as TBuilder;
 
-  generateNumberProp(builder, 'top');
-  generateNumberProp(builder, 'left');
-  generateNumberProp(builder, 'bottom');
-  generateNumberProp(builder, 'right');
-  generateNumberProp(builder, 'flex');
-  generateNumberProp(builder, 'order');
-  generateNumberProp(builder, 'shrink');
-  generateNumberProp(builder, 'basis');
-  generateNumberProp(builder, 'grow');
+  generateRawProp<number | string>(builder, 'width');
+  generateRawProp<number | string>(builder, 'height');
+  generateRawProp<number>(builder, 'top');
+  generateRawProp<number>(builder, 'left');
+  generateRawProp<number>(builder, 'bottom');
+  generateRawProp<number>(builder, 'right');
+  generateRawProp<number>(builder, 'flex');
+  generateRawProp<number>(builder, 'order');
+  generateRawProp<number>(builder, 'shrink');
+  generateRawProp<number>(builder, 'basis');
+  generateRawProp<number>(builder, 'grow');
   generateAlignmentProp(builder, 'justifyContent');
   generateAlignmentProp(builder, 'alignContent');
   generateAlignmentProp(builder, 'alignItems');

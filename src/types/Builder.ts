@@ -1,7 +1,6 @@
 import { TAlignContent, TDirection, TWrap } from './Flexboxe';
 
-type NumberProp = (n: number) => TBuilder;
-type StrProp = (t: string) => TBuilder;
+type rawProp<T> = (t: T) => TBuilder;
 
 type TAlignmentFactory = {
   start: () => TBuilder;
@@ -13,12 +12,12 @@ type TAlignmentFactory = {
 };
 
 type AllDirectionProps = {
-  top: NumberProp;
-  bottom: NumberProp;
-  left: NumberProp;
-  right: NumberProp;
-  vertical: NumberProp;
-  horizontal: NumberProp;
+  top: rawProp<number>;
+  bottom: rawProp<number>;
+  left: rawProp<number>;
+  right: rawProp<number>;
+  vertical: rawProp<number>;
+  horizontal: rawProp<number>;
 };
 
 type TStyles = {
@@ -47,15 +46,17 @@ type TStyles = {
 
 export type TBuilder = {
   styles: Partial<TStyles>;
-  top: NumberProp;
-  left: NumberProp;
-  bottom: NumberProp;
-  right: NumberProp;
-  grow: NumberProp;
-  basis: NumberProp;
-  shrink: NumberProp;
-  flex: NumberProp;
-  order: NumberProp;
+  width: rawProp<number | string>;
+  height: rawProp<number | string>;
+  top: rawProp<number>;
+  left: rawProp<number>;
+  bottom: rawProp<number>;
+  right: rawProp<number>;
+  grow: rawProp<number>;
+  basis: rawProp<number>;
+  shrink: rawProp<number>;
+  flex: rawProp<number>;
+  order: rawProp<number>;
   build: () => any;
 
   alignItems: TAlignmentFactory;
@@ -64,10 +65,10 @@ export type TBuilder = {
   margin: AllDirectionProps;
   padding: AllDirectionProps;
   font: {
-    family: StrProp;
-    size: NumberProp;
-    lineHeight: NumberProp;
-    spacing: NumberProp;
+    family: rawProp<string>;
+    size: rawProp<number>;
+    lineHeight: rawProp<number>;
+    spacing: rawProp<number>;
   };
   direction: {
     row: () => TBuilder;
